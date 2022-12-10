@@ -19,6 +19,10 @@ def generateRandomChar(event):
         for finger, keys in fingers_to_keys.items():
             if curr_val in keys:
                 finger_to_use.config(text=finger)
+                if finger[0] == "L":
+                    finger_to_use.config(fg="#dea8ff")
+                else:
+                    finger_to_use.config(fg="#e63c3c")
         prior_letter.config(text=old_letter.get())
         curr_letter.config(text=current_letter.get())
         next_letter.config(text=new_letter.get())
@@ -52,7 +56,7 @@ prior_letter.pack(fill=tk.BOTH,expand=True, side=tk.LEFT)
 curr_letter.pack(fill=tk.BOTH,expand=True, side=tk.LEFT)
 next_letter.pack(fill=tk.BOTH,expand=True, side=tk.LEFT)
 
-finger_to_use = tk.Label( text="L Pinky", fg="#d1d1d1", bg="black", font=("Arial", 15))
+finger_to_use = tk.Label( text="L Pinky", fg="#dea8ff", bg="black", font=("Helvetica", 15))
 finger_to_use.pack(fill=tk.BOTH,expand=True)
 
 window.bind('<KeyPress>', generateRandomChar)
